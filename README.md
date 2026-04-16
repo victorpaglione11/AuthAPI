@@ -7,4 +7,5 @@ Basic Auth API<br/>
 ✔ Password hashing (BCrypt) <br/>
 ✔ Role-Based Access Control (RBAC) <br/>
 ✔ Token expiration strategy <br/>
+✔ Rate Limiting (Token Bucket)<br/>
 ✔ Protected endpoints via [Authorize] <br/>
