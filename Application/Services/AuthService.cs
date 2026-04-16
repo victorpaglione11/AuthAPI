@@ -1,6 +1,7 @@
 ﻿using Application.DTO;
 using Application.Interfaces;
 using Domain.Entities;
+using Domain.Exceptions;
 using Domain.Interfaces;
 
 namespace Application.Services
@@ -39,7 +40,7 @@ namespace Application.Services
             var user = await _repo.GetByUsernameAsync(username);
 
             if (user == null || !_hasher.Verify(password, user.PasswordHash))
-                throw new Exception("Invalid credentials");
+                throw new InvalidCredentialsException();
 
             var accessToken = _tokenService.GenerateToken(user.Username, user.Role);
             var refreshToken = _tokenService.GenerateRefreshToken();
