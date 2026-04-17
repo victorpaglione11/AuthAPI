@@ -19,7 +19,6 @@ namespace AuthAPI.Controllers
         }
 
         [HttpPost("register")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Register(RegisterRequestDTO dto)
         {
             await _service.RegisterAsync(dto.Username, dto.Password);
